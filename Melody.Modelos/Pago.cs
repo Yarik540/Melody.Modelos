@@ -12,8 +12,10 @@ namespace Melody.Modelos
         public double Monto { get; set; }
         public DateTime FechaPago { get; set; } = DateTime.Now;
         public string MetodoPago { get; set; }
+
         // Foreign keys
         public int SuscripcionId { get; set; }
+
         // Navigation properties
         public Suscripcion? Suscripcion { get; set; }
     }

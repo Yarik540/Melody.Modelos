@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Melody.Modelos.DTOs
 {
-    public class UsuarioLoginDto
+    public class LoginDto
     {
         public string Email { get; set; }
         public string Password { get; set; }
