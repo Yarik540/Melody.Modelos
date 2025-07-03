@@ -1,4 +1,4 @@
-@Melody.API_HostAddress = http://localhost:5146
+@Melody.API_HostAddress = http://localhost:5162
 
 GET {{Melody.API_HostAddress}}/weatherforecast/
 Accept: application/json

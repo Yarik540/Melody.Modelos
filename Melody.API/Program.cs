@@ -1,27 +1,21 @@
 using Microsoft.EntityFrameworkCore;
-using Melody.Modelos;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 internal class Program
 {
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
         var connectionString = builder.Configuration.GetConnectionString("AppDbContext");
+
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
         );
-
-        builder.Services.AddIdentity<Usuario, IdentityRole<int>>()
-        .AddEntityFrameworkStores<AppDbContext>()
-        .AddDefaultTokenProviders();
-
         //Add services to the container
         builder.Services
             .AddControllers()
             .AddNewtonsoftJson(
                 options => options.SerializerSettings.ReferenceLoopHandling
                 = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -37,8 +31,9 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseAuthentication();
+
         app.UseAuthorization();
+
         app.MapControllers();
 
         app.Run();
