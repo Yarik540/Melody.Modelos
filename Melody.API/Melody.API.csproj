@@ -25,8 +25,4 @@
     <ProjectReference Include="..\Melody.Modelos\Melody.Modelos.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
